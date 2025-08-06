@@ -1,5 +1,8 @@
 package com.abelov.store.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum CarTypeEnum {
     Sedan(type = "Седан"),
     Hatchback(type = "Хэтчбек"),
