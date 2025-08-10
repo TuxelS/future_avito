@@ -1,0 +1,118 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_transport_schema
+      author: TuxelS
+      changes:
+        - sql:
+            sql: CREATE SCHEMA IF NOT EXISTS transport;
+  - changeSet:
+      id: create_transport_table
+      author: TuxelS
+      changes:
+        - createTable:
+            schemaName: transport
+            tableName: transport
+            columns:
+              - column:
+                  name: brand
+                  type: varchar(255)
+              - column:
+                  name: color
+                  type: varchar(255)
+              - column:
+                  name: manufacture_year
+                  type: int
+              - column:
+                  name: manufacture_country
+                  type: varchar(255)
+              - column:
+                  name: uuid
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: transport_pkey
+                    nullable: false
+  - changeSet:
+      id: add_fk_transport_to_item
+      author: TuxelS
+      changes:
+        - sql:
+            sql: |
+              ALTER TABLE transport.transport
+              ADD CONSTRAINT fk_transport_to_item
+              FOREIGN KEY (uuid) REFERENCES item.item(uuid)
+              ON DELETE CASCADE
+              ON UPDATE CASCADE;
+
+  - changeSet:
+      id: create_car_table
+      author: TuxelS
+      changes:
+        - createTable:
+            schemaName: transport
+            tableName: car
+            columns:
+              - column:
+                  name: uuid
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: car_pkey
+                    nullable: false
+              - column:
+                  name: car_mileage
+                  type: int
+              - column:
+                  name: car_type
+                  type: varchar(255)
+              - column:
+                  name: engine_type
+                  type: varchar(255)
+  - changeSet:
+      id: add_fk_car_to_transport
+      author: TuxelS
+      changes:
+        - sql:
+            sql: |
+              ALTER TABLE transport.car
+              ADD CONSTRAINT fk_car_to_transport
+              FOREIGN KEY (uuid) REFERENCES transport.transport(uuid)
+              ON DELETE CASCADE
+              ON UPDATE CASCADE;
+
+  - changeSet:
+      id: create_truck_table
+      author: TuxelS
+      changes:
+        - createTable:
+            schemaName: transport
+            tableName: truck
+            columns:
+              - column:
+                  name: uuid
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: truck_pkey
+                    nullable: false
+              - column:
+                  name: cargo_area_length
+                  type: double precision
+              - column:
+                  name: cargo_capacity
+                  type: double precision
+              - column:
+                  name: has_trailer
+                  type: boolean
+
+  - changeSet:
+      id: TuxelS
+      author: add_fk_truck_to_transport
+      changes:
+        - sql:
+            sql: |
+              ALTER TABLE transport.truck
+              ADD CONSTRAINT fk_truck_to_transport
+              FOREIGN KEY (uuid) REFERENCES transport.transport(uuid)
+              ON DELETE CASCADE
+              ON UPDATE CASCADE;

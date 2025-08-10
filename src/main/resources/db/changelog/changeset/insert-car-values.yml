@@ -1,0 +1,655 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-10-test-cars
+      author: your_name
+      changes:
+        # Car 1 (Toyota Camry)
+        - insert:
+            tableName: item
+            schemaName: item
+            columns:
+              - column:
+                  name: uuid
+                  value: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"
+              - column:
+                  name: owner
+                  value: "ivanov"
+              - column:
+                  name: name
+                  value: "Toyota Camry"
+              - column:
+                  name: status
+                  value: "PUBLISHED"
+              - column:
+                  name: price
+                  value: "2500000"
+              - column:
+                  name: description
+                  value: "Toyota Camry 2018 года в идеальном состоянии. Один владелец по ПТС, полная сервисная история у официального дилера. Комплектация Prestige: кожаный салон, подогрев сидений, камера заднего вида. Бензиновый двигатель 2.5 л (249 л.с.), автомат. Пробег 50 000 км - преимущественно по трассе. Нет вложений в ремонт, оригинальный ЛКП."
+              - column:
+                  name: created_at
+                  valueComputed: NOW()
+              - column:
+                  name: updated_at
+                  valueComputed: NOW()
+
+        - insert:
+            tableName: transport
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"
+              - column:
+                  name: color
+                  value: "Черный"
+              - column:
+                  name: manufacture_year
+                  value: 2018
+              - column:
+                  name: brand
+                  value: "Toyota"
+              - column:
+                  name: manufacture_country
+                  value: "Япония"
+        - insert:
+            tableName: car
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"
+              - column:
+                  name: car_type
+                  value: "Sedan"
+              - column:
+                  name: engine_type
+                  value: "PETROL"
+              - column:
+                  name: car_mileage
+                  value: 50000
+        # Car 2 (Volkswagen Golf)
+        - insert:
+            tableName: item
+            schemaName: item
+            columns:
+              - column:
+                  name: uuid
+                  value: "550e8400-e29b-41d4-a716-446655440000"
+              - column:
+                  name: owner
+                  value: "petrov"
+              - column:
+                  name: name
+                  value: "Volkswagen Golf"
+              - column:
+                  name: status
+                  value: "PUBLISHED"
+              - column:
+                  name: price
+                  value: "1800000"
+              - column:
+                  name: description
+                  value: "Новый Volkswagen Golf 2022 года в максимальной комплектации R-Line. Пробег всего 1000 км - автомобиль с выставочного зала. Полный пакет опций: цифровая приборная панель, матричные фары, адаптивный круиз-контроль. Бензиновый турбодвигатель 1.4 TSI (150 л.с.) с роботизированной коробкой DSG. Европейская сборка, гарантия до 2025 года."
+              - column:
+                  name: created_at
+                  valueComputed: NOW()
+              - column:
+                  name: updated_at
+                  valueComputed: NOW()
+
+        - insert:
+            tableName: transport
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "550e8400-e29b-41d4-a716-446655440000"
+              - column:
+                  name: color
+                  value: "Белый"
+              - column:
+                  name: manufacture_year
+                  value: 2022
+              - column:
+                  name: brand
+                  value: "Volkswagen"
+              - column:
+                  name: manufacture_country
+                  value: "Германия"
+        - insert:
+            tableName: car
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "550e8400-e29b-41d4-a716-446655440000"
+              - column:
+                  name: car_type
+                  value: "Hatchback"
+              - column:
+                  name: engine_type
+                  value: "PETROL"
+              - column:
+                  name: car_mileage
+                  value: 1000
+        # Car 3 (BMW X5)
+        - insert:
+            tableName: item
+            schemaName: item
+            columns:
+              - column:
+                  name: uuid
+                  value: "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+              - column:
+                  name: owner
+                  value: "sidorov"
+              - column:
+                  name: name
+                  value: "BMW X5"
+              - column:
+                  name: status
+                  value: "FROZEN"
+              - column:
+                  name: price
+                  value: "5000000"
+              - column:
+                  name: description
+                  value: "BMW X5 xDrive30d 2021 года в топовой комплектации M Sport. Дизельный двигатель 3.0 л (265 л.с.) с полным приводом и 8-ступенчатым автоматом. Пробег 30 000 км. Эксклюзивные опции: пакет M Sport Pro, кожа Merino, стеклянная панорама, проекционный дисплей. Все ТО по регламенту у официального дилера. Состояние как новое, полный пакет документов."
+              - column:
+                  name: created_at
+                  valueComputed: NOW()
+              - column:
+                  name: updated_at
+                  valueComputed: NOW()
+
+        - insert:
+            tableName: transport
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+              - column:
+                  name: color
+                  value: "Синий"
+              - column:
+                  name: manufacture_year
+                  value: 2021
+              - column:
+                  name: brand
+                  value: "BMW"
+              - column:
+                  name: manufacture_country
+                  value: "Германия"
+        - insert:
+            tableName: car
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+              - column:
+                  name: car_type
+                  value: "SUV"
+              - column:
+                  name: engine_type
+                  value: "DIESEL"
+              - column:
+                  name: car_mileage
+                  value: 30000
+        # Car 4 (Kia Rio)
+        - insert:
+            tableName: item
+            schemaName: item
+            columns:
+              - column:
+                  name: uuid
+                  value: "123e4567-e89b-12d3-a456-426614174000"
+              - column:
+                  name: owner
+                  value: "smirnov"
+              - column:
+                  name: name
+                  value: "Kia Rio"
+              - column:
+                  name: status
+                  value: "PUBLISHED"
+              - column:
+                  name: price
+                  value: "1200000"
+              - column:
+                  name: description
+                  value: "Kia Rio 2020 года в комплектации Premium. Бензиновый двигатель 1.6 (123 л.с.) с автоматом, расход 6.5 л/100 км. Пробег 45 000 км - город/трасса 50/50. Полный пакет опций: климат-контроль, мультируль, камера заднего вида, датчики парковки. Отличное техническое состояние, не бит, не крашен. Идеальный городской автомобиль с экономичным двигателем."
+              - column:
+                  name: created_at
+                  valueComputed: NOW()
+              - column:
+                  name: updated_at
+                  valueComputed: NOW()
+
+        - insert:
+            tableName: transport
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "123e4567-e89b-12d3-a456-426614174000"
+              - column:
+                  name: color
+                  value: "Красный"
+              - column:
+                  name: manufacture_year
+                  value: 2020
+              - column:
+                  name: brand
+                  value: "Kia"
+              - column:
+                  name: manufacture_country
+                  value: "Корея"
+        - insert:
+            tableName: car
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "123e4567-e89b-12d3-a456-426614174000"
+              - column:
+                  name: car_type
+                  value: "Sedan"
+              - column:
+                  name: engine_type
+                  value: "PETROL"
+              - column:
+                  name: car_mileage
+                  value: 45000
+
+        # Car 5 (Tesla Model 3)
+        - insert:
+            tableName: item
+            schemaName: item
+            columns:
+              - column:
+                  name: uuid
+                  value: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+              - column:
+                  name: owner
+                  value: "zaitsev"
+              - column:
+                  name: name
+                  value: "Tesla Model 3"
+              - column:
+                  name: status
+                  value: "CLOSED"
+              - column:
+                  name: price
+                  value: "3500000"
+              - column:
+                  name: description
+                  value: "Tesla Model 3 Long Range 2022 года. Пробег 20 000 км. Полный привод, запас хода 530 км. Премиум-комплектация: белый веган-кожаный салон, '19' спорт-диски, премиум-аудиосистема. Автопилот Full Self-Driving Capability. Батарея 82 кВт·ч сохранила 98% емкости. Все обновления ПО актуальны. Включен бесплатный доступ к сети Supercharger до 2024 года."
+              - column:
+                  name: created_at
+                  valueComputed: NOW()
+              - column:
+                  name: updated_at
+                  valueComputed: NOW()
+        - insert:
+            tableName: transport
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+              - column:
+                  name: color
+                  value: "Белый"
+              - column:
+                  name: manufacture_year
+                  value: 2022
+              - column:
+                  name: brand
+                  value: "Tesla"
+              - column:
+                  name: manufacture_country
+                  value: "США"
+        - insert:
+            tableName: car
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+              - column:
+                  name: car_type
+                  value: "Sedan"
+              - column:
+                  name: engine_type
+                  value: "ELECTRIC"
+              - column:
+                  name: car_mileage
+                  value: 20000
+
+        # Car 6 (Lada Vesta)
+        - insert:
+            tableName: item
+            schemaName: item
+            columns:
+              - column:
+                  name: uuid
+                  value: "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed"
+              - column:
+                  name: owner
+                  value: "kozlov"
+              - column:
+                  name: name
+                  value: "Lada Vesta"
+              - column:
+                  name: status
+                  value: "PUBLISHED"
+              - column:
+                  name: price
+                  value: "900000"
+              - column:
+                  name: description
+                  value: "Комплектация Comfort, газобаллонное оборудование (ГБО), экономичный расход. Идеальный вариант для города. Нет следов ДТП."
+              - column:
+                  name: created_at
+                  valueComputed: NOW()
+              - column:
+                  name: updated_at
+                  valueComputed: NOW()
+        - insert:
+            tableName: transport
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed"
+              - column:
+                  name: color
+                  value: "Серебристый"
+              - column:
+                  name: manufacture_year
+                  value: 2019
+              - column:
+                  name: brand
+                  value: "Lada"
+              - column:
+                  name: manufacture_country
+                  value: "Россия"
+        - insert:
+            tableName: car
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed"
+              - column:
+                  name: car_type
+                  value: "Sedan"
+              - column:
+                  name: engine_type
+                  value: "GAS"
+              - column:
+                  name: car_mileage
+                  value: 75000
+
+        # Car 7 (Audi A6)
+        - insert:
+            tableName: item
+            schemaName: item
+            columns:
+              - column:
+                  name: uuid
+                  value: "8eb3a6f8-25a3-4a2d-b87c-912a34567890"
+              - column:
+                  name: owner
+                  value: "volkov"
+              - column:
+                  name: name
+                  value: "Audi A6"
+              - column:
+                  name: status
+                  value: "PUBLISHED"
+              - column:
+                  name: price
+                  value: "4200000"
+              - column:
+                  name: description
+                  value: "Рестайлинг 2020 года, кожаный салон, панорамная крыша, полный привод. Обслуживалась у официального дилера. Все ТО в наличии."
+              - column:
+                  name: created_at
+                  valueComputed: NOW()
+              - column:
+                  name: updated_at
+                  valueComputed: NOW()
+        - insert:
+            tableName: transport
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "8eb3a6f8-25a3-4a2d-b87c-912a34567890"
+              - column:
+                  name: color
+                  value: "Черный"
+              - column:
+                  name: manufacture_year
+                  value: 2020
+              - column:
+                  name: brand
+                  value: "Audi"
+              - column:
+                  name: manufacture_country
+                  value: "Германия"
+        - insert:
+            tableName: car
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "8eb3a6f8-25a3-4a2d-b87c-912a34567890"
+              - column:
+                  name: car_type
+                  value: "StationWagon"
+              - column:
+                  name: engine_type
+                  value: "DIESEL"
+              - column:
+                  name: car_mileage
+                  value: 35000
+
+        # Car 8 (Hyundai Creta)
+        - insert:
+            tableName: item
+            schemaName: item
+            columns:
+              - column:
+                  name: uuid
+                  value: "9c5b5d5e-0e7e-4a1a-b11d-8a1b2c3d4e5f"
+              - column:
+                  name: owner
+                  value: "orlov"
+              - column:
+                  name: name
+                  value: "Hyundai Creta"
+              - column:
+                  name: status
+                  value: "FROZEN"
+              - column:
+                  name: price
+                  value: "2200000"
+              - column:
+                  name: description
+                  value: "Гибридная версия, расход 5.5л/100км. Комплектация Premium с камерой 360°. Зимняя резина в подарок. Возможен trade-in."
+              - column:
+                  name: created_at
+                  valueComputed: NOW()
+              - column:
+                  name: updated_at
+                  valueComputed: NOW()
+        - insert:
+            tableName: transport
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "9c5b5d5e-0e7e-4a1a-b11d-8a1b2c3d4e5f"
+              - column:
+                  name: color
+                  value: "Серый"
+              - column:
+                  name: manufacture_year
+                  value: 2021
+              - column:
+                  name: brand
+                  value: "Hyundai"
+              - column:
+                  name: manufacture_country
+                  value: "Корея"
+        - insert:
+            tableName: car
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "9c5b5d5e-0e7e-4a1a-b11d-8a1b2c3d4e5f"
+              - column:
+                  name: car_type
+                  value: "SUV"
+              - column:
+                  name: engine_type
+                  value: "HYBRID"
+              - column:
+                  name: car_mileage
+                  value: 25000
+
+        # Car 9 (Ford Focus)
+        - insert:
+            tableName: item
+            schemaName: item
+            columns:
+              - column:
+                  name: uuid
+                  value: "2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d"
+              - column:
+                  name: owner
+                  value: "belov"
+              - column:
+                  name: name
+                  value: "Ford Focus"
+              - column:
+                  name: status
+                  value: "CLOSED"
+              - column:
+                  name: price
+                  value: "950000"
+              - column:
+                  name: description
+                  value: "Хэтчбек 2017 года в отличном состоянии. Механика, кондиционер, мультируль. Отличный первый автомобиль для студента."
+              - column:
+                  name: created_at
+                  valueComputed: NOW()
+              - column:
+                  name: updated_at
+                  valueComputed: NOW()
+        - insert:
+            tableName: transport
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d"
+              - column:
+                  name: color
+                  value: "Синий"
+              - column:
+                  name: manufacture_year
+                  value: 2017
+              - column:
+                  name: brand
+                  value: "Ford"
+              - column:
+                  name: manufacture_country
+                  value: "США"
+        - insert:
+            tableName: car
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d"
+              - column:
+                  name: car_type
+                  value: "Hatchback"
+              - column:
+                  name: engine_type
+                  value: "PETROL"
+              - column:
+                  name: car_mileage
+                  value: 80000
+
+        # Car 10 (Lexus RX)
+        - insert:
+            tableName: item
+            schemaName: item
+            columns:
+              - column:
+                  name: uuid
+                  value: "00000000-0000-4000-a000-000000000000"
+              - column:
+                  name: owner
+                  value: "morozov"
+              - column:
+                  name: name
+                  value: "Lexus RX"
+              - column:
+                  name: status
+                  value: "PUBLISHED"
+              - column:
+                  name: price
+                  value: "6500000"
+              - column:
+                  name: description
+                  value: "Гибридный кроссовер 2023 года в топовой комплектации. Панорамная крыша, маркированный аудио, адаптивный круиз. Пробег 5000 км."
+              - column:
+                  name: created_at
+                  valueComputed: NOW()
+              - column:
+                  name: updated_at
+                  valueComputed: NOW()
+        - insert:
+            tableName: transport
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "00000000-0000-4000-a000-000000000000"
+              - column:
+                  name: color
+                  value: "Белый"
+              - column:
+                  name: manufacture_year
+                  value: 2023
+              - column:
+                  name: brand
+                  value: "Lexus"
+              - column:
+                  name: manufacture_country
+                  value: "Япония"
+        - insert:
+            tableName: car
+            schemaName: transport
+            columns:
+              - column:
+                  name: uuid
+                  value: "00000000-0000-4000-a000-000000000000"
+              - column:
+                  name: car_type
+                  value: "SUV"
+              - column:
+                  name: engine_type
+                  value: "HYBRID"
+              - column:
+                  name: car_mileage
+                  value: 5000

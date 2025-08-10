@@ -1,4 +1,4 @@
-package com.abelov.store.repository;
+package com.abelov.store.repository.jpa;
 
 import com.abelov.store.entity.ItemEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

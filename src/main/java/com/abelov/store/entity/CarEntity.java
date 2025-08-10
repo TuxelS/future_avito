@@ -7,29 +7,38 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "car")
+@ToString(callSuper = true)
+@Table(schema = "transport", name = "car")
 public class CarEntity extends TransportEntity{
     @Enumerated(value = EnumType.STRING)
     private CarTypeEnum carType;
 
+    @Enumerated(value = EnumType.STRING)
+    private EngineEnum engineType;
+
+    private Integer carMileage;
+
     public CarEntity(){
     }
 
-    public CarEntity(String owner, String name, StatusEnum status, String price,
-                     String description, LocalDateTime created_at, LocalDateTime updated_at,
-                     Integer mileage, String color, Integer manufactureYear, String brand,
-                     String manufactureCountry,
-                     EngineEnum engineType, CarTypeEnum carType) {
-        super(owner, name, status, price, description, created_at, updated_at, mileage, color,
-                manufactureYear, brand, manufactureCountry, engineType);
+    public CarEntity(String owner, String name, StatusEnum status,
+                     String price, String description, LocalDateTime created_at,
+                     LocalDateTime updated_at, String color, Integer manufactureYear,
+                     String brand, String manufactureCountry, CarTypeEnum carType, EngineEnum engineType, Integer carMileage) {
+        super(owner, name, status, price, description, created_at, updated_at,
+                color, manufactureYear, brand, manufactureCountry);
         this.carType = carType;
+        this.engineType = engineType;
+        this.carMileage = carMileage;
     }
 }

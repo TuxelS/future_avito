@@ -3,15 +3,20 @@ package com.abelov.store.entity;
 import com.abelov.store.enums.StatusEnum;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Data
 @Entity
-@Table(name = "item")
+@Getter
+@Setter
+@ToString(callSuper = true)
+@Table(schema = "item", name = "item")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class ItemEntity {
+public class ItemEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
@@ -20,6 +25,7 @@ public abstract class ItemEntity {
     @Enumerated(value = EnumType.STRING)
     private StatusEnum status; // Опубликован, закрыт, заморожен и тд
     private String price;
+    @Column(columnDefinition = "TEXT")
     private String description;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;

@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.5.4'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id 'org.jetbrains.kotlin.kapt' version '1.9.20' // Добавлено для обработки аннотаций
 }
 
 group = 'com.abelov'
@@ -24,6 +25,7 @@ repositories {
 }
 
 dependencies {
+	// Существующие зависимости
 	implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -37,6 +39,17 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok'
 	testRuntimeOnly 'org.postgresql:postgresql'
 
+	// Добавленные зависимости для MapStruct
+	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0' // Важно для совместимости с Lombok
+}
+
+// Конфигурация для MapStruct (генерировать Spring-компоненты)
+tasks.named('compileJava') {
+	options.compilerArgs += [
+			'-Amapstruct.defaultComponentModel=spring'
+	]
 }
 
 tasks.named('test') {
