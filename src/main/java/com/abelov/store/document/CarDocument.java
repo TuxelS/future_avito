@@ -12,7 +12,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.util.UUID;
 
 @Data
-@Document(indexName = "car", createIndex = true)
+@Document(indexName = "car")
 public class CarDocument {
     @Id
     @Field(type = FieldType.Keyword)  // отвечает за точные совпадение
